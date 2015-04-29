@@ -52,7 +52,7 @@ public class SilentService extends Service {
 
     private Notification getNotification(Context context) {
         return new Notification.Builder(context)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_stat_ad)
                 .setContentTitle(getString(R.string.notif_title))
                 .setContentText(getString(R.string.notif_text))
                 .setContentIntent(getPendingServiceIntent(ACTION_NORMAL_VOLUME))

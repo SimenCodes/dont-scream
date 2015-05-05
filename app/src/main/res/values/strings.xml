@@ -18,7 +18,7 @@
 
     <string name="hello_world_title">Hey!</string>
     <string name="hello_world_content">Calm is now active.
-        \n\nSpotify ads will have a slightly lower volume. This will <b>NOT</b> remove, skip or mute the ads.
+        \n\nSpotify ads will have a slightly lower volume. This will <b>NOT</b> skip or silence the ads.
         \n\nTo disable, just uninstall the app.
     </string>
     <string name="not_working_title">Still getting loud ads?</string>
@@ -29,4 +29,5 @@
     <string name="not_working_footer">Can\'t get it to work even after enabling broadcast?</string>
     <string name="get_help_button">Get more help</string>
     <string name="error_screenshot">That\'s just a screenshot. You have to do this in the real Spotify app.</string>
+    <string name="setting_alt_muting">Alternative adjustment method (AudioFocus)</string>
 </resources>

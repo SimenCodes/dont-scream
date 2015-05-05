@@ -31,7 +31,6 @@ public class SilentService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.v(logTag, "onCreate");
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         isAlternativeMuting = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
@@ -43,20 +42,24 @@ public class SilentService extends Service {
         switch (intent.getAction()) {
             case ACTION_REDUCE_VOLUME:
                 isActive = true;
-                if (isAlternativeMuting)
-                    requestLowerSystemVolume();
-                else
-                    if (!requestAudioFocus()) requestLowerSystemVolume();
-                notificationManager.notify(NOTIFICATION_ID, getNotification(getApplicationContext()));
+
+                if (isAlternativeMuting) requestAudioFocus();
+                else                     requestLowerSystemVolume();
+
+                final Notification notification = getNotification(getApplicationContext());
+                notificationManager.notify(NOTIFICATION_ID, notification);
+                startForeground(NOTIFICATION_ID, notification);
+
                 break;
             case ACTION_NORMAL_VOLUME:
                 isActive = false;
-                if (isAlternativeMuting)
-                    abandonLowerSystemVolume();
-                else
-                    abandonAudioFocus();
+
+                if (isAlternativeMuting) abandonAudioFocus();
+                else                     abandonLowerSystemVolume();
+
                 notificationManager.cancel(NOTIFICATION_ID);
                 stopSelf();
+
                 break;
         }
 
@@ -80,15 +83,18 @@ public class SilentService extends Service {
         savedVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         if (savedVolume > 1)
             audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 1, AudioManager.FLAG_SHOW_UI);
-        else
-            stopSelf();
+        else {
+            // Fallback
+            requestAudioFocus();
+            isAlternativeMuting = true;
+        }
         Log.d(logTag, "SystemVolume low, saved " + savedVolume);
     }
 
     private void abandonLowerSystemVolume() {
         if (savedVolume > 1)
             audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, savedVolume, AudioManager.FLAG_SHOW_UI);
-        Log.d(logTag, "SystemVolume normal, to " + savedVolume);
+        Log.d(logTag, "Setting system volume to normal, " + savedVolume);
     }
 
     private Notification getNotification(Context context) {

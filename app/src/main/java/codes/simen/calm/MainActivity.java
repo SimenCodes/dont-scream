@@ -33,6 +33,8 @@ public class MainActivity extends Activity {
     public void imageViewClick(View view) {
         // For the idiots out there
         Toast.makeText(getApplicationContext(), getString(R.string.error_screenshot), Toast.LENGTH_LONG).show();
+
+        startService(new Intent(this, SilentService.class).setAction(SilentService.ACTION_REDUCE_VOLUME));
     }
 
     public void getHelp(View view) {

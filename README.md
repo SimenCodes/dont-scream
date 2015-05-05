@@ -1,5 +1,6 @@
+![Header image](http://simen.codes/wp-content/uploads/2015/04/header_website.png)
 # Calm – Limit Spotify Ad Volume
-If you’re anything like me, you hate being interrupted by artists like Christina Grimmie suddenly screaming “LOVE ME LIKE YOU DO” into your ears when listening to calm, classical music on Spotify. Don’t Scream is a very simple app I made to fix this little annoyance. It will listen for Spotify’s metadata broadcasts, and lower the volume slightly during advertisements. It doesn’t mute or skip ads, it only requests a duckable, transistent audio focus until Spotify is finished playing the ad.
+If you’re anything like me, you hate being interrupted by artists like Christina Grimmie suddenly screaming “LOVE ME LIKE YOU DO” into your ears when listening to calm, classical music on Spotify. Calm is a very simple app I made to fix this little annoyance. It will listen for Spotify’s metadata broadcasts, and lower the volume slightly during advertisements. It doesn’t mute or skip ads, it only requests a duckable, transistent audio focus until Spotify is finished playing the ad.
 
 [Go to download page](http://simen.codes/app/spotify-lower-ad-volume/)
 

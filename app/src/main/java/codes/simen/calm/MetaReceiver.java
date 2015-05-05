@@ -51,7 +51,7 @@ public class MetaReceiver extends BroadcastReceiver {
                     Log.d(logTag, isAd ? "ad id prefix found!" : "no ad prefix");
                     // In case they change their naming scheme, we'll revert to using the track length
                     if (!isAd && !idStr.startsWith("spotify:track:")) {
-                        Log.d(logTag, "no track prefix found either");
+                        Log.w(logTag, "no track prefix found either");
                         isAd = isAdAlternative(intent);
                     }
                 } else {

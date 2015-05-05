@@ -1,4 +1,4 @@
-package codes.simen.dontscream;
+package codes.simen.calm;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

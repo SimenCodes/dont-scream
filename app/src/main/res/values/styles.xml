@@ -2,5 +2,7 @@
 <resources>
     <style name="AppTheme" parent="android:Theme.DeviceDefault.NoActionBar">
         <item name="android:background">#121314</item>
+        <item name="android:colorPrimary">#121314</item>
+        <item name="android:colorAccent">#81b71a</item>
     </style>
 </resources>

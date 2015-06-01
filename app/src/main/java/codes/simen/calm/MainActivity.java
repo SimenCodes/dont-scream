@@ -11,6 +11,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 public class MainActivity extends Activity {
 
@@ -28,6 +31,14 @@ public class MainActivity extends Activity {
         checkBoxAltMuting = (CheckBox) findViewById(R.id.checkBox);
         checkBoxAltMuting.setChecked(preferences.getBoolean(SETTING_KEY_ALTERNATIVE_MUTING, false));
         checkBoxAltMuting.setOnCheckedChangeListener(checkedChangeListener);
+
+        // Load an advertisement
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("3B0B160CFA9D74704ED0120194F3C8D0")
+                .addKeyword("music")
+                .build();
+        adView.loadAd(adRequest);
     }
 
     public void imageViewClick(View view) {

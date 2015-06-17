@@ -37,7 +37,6 @@ public class MetaReceiver extends BroadcastReceiver {
                 return;
             }
 
-            long id = -1;
             if (action.equals("com.spotify.music.metadatachanged")) {
 
                 // In Spotify, the ID is a String

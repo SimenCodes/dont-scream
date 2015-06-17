@@ -19,7 +19,6 @@
     <string name="hello_world_title">Hey!</string>
     <string name="hello_world_content">Calm is now active.
         \n\nSpotify ads will have a slightly lower volume. This will <b>NOT</b> skip or silence the ads. To disable, just uninstall.
-        \n\nHere\'s an advertisement: (you love those, right?)
     </string>
     <string name="not_working_title">Still getting loud ads?</string>
     <string name="spotify_broadcast_setting_screenshot_desc">A screenshot of the \"Device Broadcast Status\" setting in Stpotify set to On</string>

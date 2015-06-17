@@ -39,7 +39,12 @@ public class SilentService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        switch (intent.getAction()) {
+        final String action = intent.getAction();
+        if (action == null) {
+            if (!isActive) stopSelf();
+            return START_NOT_STICKY;
+        }
+        switch (action) {
             case ACTION_REDUCE_VOLUME:
                 isActive = true;
 
